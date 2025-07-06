@@ -8,7 +8,7 @@
             <a href="{{ route('admin.pets.index') }}" class="mr-4 text-gray-800 hover:text-gray-900 focus:outline-none transition-colors duration-200">
                 <i class="fas fa-arrow-left text-xl"></i>
             </a>
-            <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Agregar Mascota</h1>
+            <h1 class="text-3xl font-bold text-gray-900 tracking-tight">Agregar Mascotaaa</h1>
         </div>
 
         <form action="{{ route('admin.pets.store') }}" method="POST" enctype="multipart/form-data">
