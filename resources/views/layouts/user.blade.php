@@ -49,6 +49,11 @@
                     <i class="fas fa-dollar-sign"></i>
                     <span>Donaciones</span>
                 </a>
+                <a href="{{ route('user.donations.index') }}" 
+                   class="flex items-center space-x-3 px-4 py-3 {{ request()->routeIs('user.donations.*') ? 'bg-white' : '' }} text-gray-700 hover:bg-white rounded-lg">
+                    <i class="fas fa-dollar-sign"></i>
+                    <span>Voluntariado</span>
+                </a>
             </nav>
 
             <!-- Logout Button -->

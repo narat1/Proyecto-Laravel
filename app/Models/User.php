@@ -110,4 +110,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(AdoptionRequest::class, 'approved_by');
     }
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'volunteers');
+    }
 }
