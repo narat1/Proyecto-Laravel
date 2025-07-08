@@ -77,13 +77,19 @@
                     <i class="fas fa-heart"></i>
                     <span>Donaciones</span>
                 </a>
+
+                <a href="{{ route('admin.events.index') }}"
+                    class="flex items-center space-x-3 px-4 py-3 {{ request()->routeIs('admin.events.*') ? 'bg-pet-yellow text-black font-semibold' : 'text-gray-700 hover:bg-gray-100' }} rounded-lg">
+                    <i class="fas fa-heart"></i>
+                    <span>Eventos</span>
+                </a>
             </nav>
 
-            <div class="absolute bottom-6 left-4 right-4">
+            <div class="absolute bottom-6 left-4">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit"
-                        class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg w-full">
+                        class="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-100 rounded-lg w-[225px]">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Salir</span>
                     </button>

@@ -5,7 +5,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PetController;
 use App\Http\Controllers\Admin\AdoptionRequestController;
 use App\Http\Controllers\Admin\DonationController;
+use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\User\ProfileController;
+use App\Http\Controllers\User\EventController as UserEventController;
 use App\Http\Controllers\User\PetController as UserPetController;
 use App\Http\Controllers\User\DonationController as UserDonationController;
 use App\Livewire\HomePage;
@@ -53,6 +55,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // AJAX routes para adoptantes
     Route::get('/adoptantes/{user}/view', [DashboardController::class, 'viewAdoptante'])->name('adoptantes.view');
     Route::delete('/adoptantes/{user}/delete', [DashboardController::class, 'deleteAdoptante'])->name('adoptantes.delete');
+
+    // Rutas Eventos
+    Route::resource('events', EventController::class);
 });
 
 
@@ -76,6 +81,11 @@ Route::middleware(['auth'])->name('user.')->group(function () {
     Route::get('/donations/create', [UserDonationController::class, 'create'])->name('donations.create');
     Route::post('/donations', [UserDonationController::class, 'store'])->name('donations.store');
     Route::get('/donations/{donation}/certificate', [UserDonationController::class, 'downloadCertificate'])->name('donations.certificate');
+
+    // Eventos
+    Route::get('/events', [UserEventController::class, 'index'])->name('events.index');
+    Route::get('/events/{id}', [UserEventController::class, 'show'])->name('events.show');
+    Route::post('/events/{id}/inscribirse', [UserEventController::class, 'inscribirse'])->name('events.inscribirse');
 });
 
 
