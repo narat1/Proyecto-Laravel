@@ -10,10 +10,8 @@
     <!-- Search Bar -->
     <div class="mb-6">
         <form method="GET" action="{{ route('admin.adoption-requests.index') }}" class="relative">
-            <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Buscar por nombre, email o mascota..." 
-                   class="w-full max-w-md px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none">
-            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
-            <button type="submit" class="hidden">Buscar</button>
+            <input type="text" name="search" value="{{ $search ?? '' }}" placeholder="Buscar por nombre, email o mascota..." class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-400 focus:outline-none">
+            <button type="submit" class="hidden px-6 py-2 bg-pet-yellow hover:bg-pet-yellow-dark text-black font-semibold rounded-lg"><i class="fas fa-search"></i> Buscar</button>
         </form>
     </div>
 

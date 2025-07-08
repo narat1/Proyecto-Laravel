@@ -10,7 +10,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::orderBy('start_date', 'asc')->get();
-        return view('user.event.index', compact('events'));
+        return view('user.events.index', compact('events'));
     }
 
     public function show($id)

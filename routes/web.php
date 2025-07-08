@@ -86,8 +86,6 @@ Route::middleware(['auth'])->name('user.')->group(function () {
     Route::get('/events', [UserEventController::class, 'index'])->name('events.index');
     Route::get('/events/{id}', [UserEventController::class, 'show'])->name('events.show');
     Route::post('/events/{id}/inscribirse', [UserEventController::class, 'inscribirse'])->name('events.inscribirse');
-
-
 });
 
 

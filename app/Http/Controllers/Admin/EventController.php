@@ -21,7 +21,7 @@ class EventController extends Controller
         })
         ->orderBy('start_date', 'asc')->get();
 
-        return view('admin.event.index', compact('events', 'search'));
+        return view('admin.events.index', compact('events', 'search'));
     }
 
     /**
@@ -29,7 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('admin.event.create');
+        return view('admin.events.create');
     }
 
     /**
@@ -63,7 +63,7 @@ class EventController extends Controller
 
         Event::create($validated);
 
-        return redirect()->route('events.index')->with('success', 'Evento creado exitosamente.');
+        return redirect()->route('admin.events.index')->with('success', 'Evento creado exitosamente.');
     }
 
     /**
