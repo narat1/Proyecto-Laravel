@@ -53,11 +53,12 @@ class EventController extends Controller
             'start_date.required' => 'La fecha de inicio es requerida',
             'end_date.after_or_equal' => 'La fecha de fin debe ser después que la de inicio',
             'limit_date.before_or_equal' => 'La fecha límite debe ser antes que la de inicio',
+            'image.image' => 'La imagen debe ser una imagen',
             'image.max' => 'La imagen no puede ser mayor a 2MB',
         ]);
 
         if ($request->hasFile('image')) {
-            $ruta = $request->file('image')->store('public/event_images');
+            $ruta = $request->file('image')->store('event_images');
             $validated['image'] = str_replace('public/', 'storage/', $ruta);
         }
 
@@ -72,7 +73,7 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::with('volunteers')->findOrFail($id);
-        return view('admin.event.show', compact('event'));
+        return view('admin.events.show', compact('event'));
     }
 
     /**
@@ -81,7 +82,7 @@ class EventController extends Controller
     public function edit(string $id)
     {
         $event = Event::findOrFail($id);
-        return view('admin.event.edit', compact('event'));
+        return view('admin.events.edit', compact('event'));
     }
 
     /**
@@ -115,7 +116,7 @@ class EventController extends Controller
 
         $event->update($validated);
 
-        return redirect()->route('events.index')->with('success', 'Evento actualizado');
+        return redirect()->route('admin.events.index')->with('success', 'Evento actualizado');
     }
 
 
@@ -135,6 +136,6 @@ class EventController extends Controller
 
         $event->delete();
 
-        return redirect()->route('events.index')->with('success', 'Evento eliminado correctamente.');
+        return redirect()->route('admin.events.index')->with('success', 'Evento eliminado correctamente.');
     }
 }
