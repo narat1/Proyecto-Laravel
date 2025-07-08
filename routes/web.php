@@ -53,6 +53,9 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // AJAX routes para adoptantes
     Route::get('/adoptantes/{user}/view', [DashboardController::class, 'viewAdoptante'])->name('adoptantes.view');
     Route::delete('/adoptantes/{user}/delete', [DashboardController::class, 'deleteAdoptante'])->name('adoptantes.delete');
+
+    // Rutas Eventos
+    Route::resource('events', EventController::class);
 });
 
 
@@ -76,6 +79,8 @@ Route::middleware(['auth'])->name('user.')->group(function () {
     Route::get('/donations/create', [UserDonationController::class, 'create'])->name('donations.create');
     Route::post('/donations', [UserDonationController::class, 'store'])->name('donations.store');
     Route::get('/donations/{donation}/certificate', [UserDonationController::class, 'downloadCertificate'])->name('donations.certificate');
+
+    
 });
 
 

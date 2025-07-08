@@ -54,6 +54,11 @@
                     <i class="fas fa-heart"></i>
                     <span>Donaciones</span>
                 </a>
+                <a href="{{ route('admin.events.index') }}" 
+                   class="flex items-center space-x-3 px-4 py-3 {{ request()->routeIs('admin.donations.*') ? 'bg-pet-yellow text-black' : 'text-gray-700' }} hover:bg-gray-100 rounded-lg font-semibold">
+                    <i class="fas fa-heart"></i>
+                    <span>Eventos</span>
+                </a>
             </nav>
 
             <!-- Logout Button -->
